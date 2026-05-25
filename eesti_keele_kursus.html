@@ -116,8 +116,18 @@
     width: 96px; height: 64px; border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: flagWave 3s ease-in-out infinite;
+    transform-origin: center center;
   }
-  .cover .flag-item svg:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  .cover .flag-item:nth-child(1) svg { animation-delay: 0s; }
+  .cover .flag-item:nth-child(3) svg { animation-delay: 1.5s; }
+  .cover .flag-item svg:hover { animation: none; transform: scale(1.08) translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  @keyframes flagWave {
+    0%, 100% { transform: perspective(400px) rotateY(0deg) rotateX(0deg); }
+    25% { transform: perspective(400px) rotateY(3deg) rotateX(-1deg); }
+    50% { transform: perspective(400px) rotateY(0deg) rotateX(1deg); }
+    75% { transform: perspective(400px) rotateY(-3deg) rotateX(-1deg); }
+  }
   .cover .flag-label { font-size: 7pt; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
   .cover .flag-divider {
     width: 1px; height: 50px; background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);

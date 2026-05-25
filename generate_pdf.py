@@ -8,7 +8,7 @@ import os
 import re
 from datetime import datetime
 
-FOLDER = r"C:\Users\serge\Desktop\Эстонский язык - материалы для экзаменов"
+FOLDER = os.path.dirname(os.path.abspath(__file__))
 OUTPUT = os.path.join(FOLDER, "eesti_keele_kursus.html")
 
 # Files in reading order

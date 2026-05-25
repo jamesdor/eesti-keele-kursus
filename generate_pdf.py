@@ -161,16 +161,18 @@ HEADER = """<!DOCTYPE html>
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     animation: flagWave 2.5s ease-in-out infinite;
     transform-origin: 50% 50% 0;
+    will-change: transform;
+    backface-visibility: hidden;
   }
   .cover .flag-item:nth-child(1) svg { animation-delay: 0s; }
   .cover .flag-item:nth-child(3) svg { animation-delay: 1.2s; }
   .cover .flag-item svg:hover { animation: none; transform: scale(1.08) translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
   @keyframes flagWave {
-    0%, 100% { transform: perspective(500px) rotateY(0deg) skewY(0deg); }
-    20% { transform: perspective(500px) rotateY(6deg) skewY(1deg); }
-    40% { transform: perspective(500px) rotateY(-3deg) skewY(-0.5deg); }
-    60% { transform: perspective(500px) rotateY(4deg) skewY(0.5deg); }
-    80% { transform: perspective(500px) rotateY(-2deg) skewY(-0.3deg); }
+    0%, 100% { transform: perspective(800px) rotateY(0deg); }
+    20% { transform: perspective(800px) rotateY(5deg); }
+    40% { transform: perspective(800px) rotateY(-2deg); }
+    60% { transform: perspective(800px) rotateY(3deg); }
+    80% { transform: perspective(800px) rotateY(-1deg); }
   }
   .cover .flag-label { font-size: 7pt; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
   .cover .flag-divider {

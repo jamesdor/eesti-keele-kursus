@@ -1,7 +1,7 @@
 // Eesti Keele Kursus — Service Worker
 const CACHE = 'eesti-keele-v1';
 const URLS = [
-  'index.html',
+  'eesti_keele_kursus.html',
   'manifest.json',
   'icon-192.png',
   'icon-512.png'

@@ -340,9 +340,11 @@
 <div class="search-no-print">
   <div class="search-container">
     <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Otsi kogu kursusest... (otsi vähemalt 2 tähte)" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Otsi kogu kursusest..." autocomplete="off">
     <span class="search-clear" id="searchClear">✕</span>
+    <span class="search-count" id="searchCount"></span>
   </div>
+  <div class="search-hint">Otsi vähemalt 2 tähte</div>
   <div style="display:flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px;">
     <div class="level-filter no-print" id="levelFilter">
       <button class="level-filter-btn active-all" data-level="all">Kõik</button>
@@ -377,6 +379,10 @@
 .search-container .search-clear.visible { display: inline; }
 .search-match { background: #fff176; padding: 0 2px; border-radius: 2px; }
 .search-no-results { text-align: center; padding: 40px; color: #999; font-size: 12pt; display: none; }
+.search-count { font-size: 9pt; color: #1565c0; white-space: nowrap; }
+.search-hint { font-size: 8pt; color: #999; margin: 2px 0 6px; }
+body.dark-mode .search-count { color: #64b5f6; }
+body.dark-mode .search-hint { color: #666; }
 
 /* ===== DARK MODE ===== */
 body.dark-mode { background: #121212; color: #e0e0e0; }
@@ -525,6 +531,9 @@ body.dark-mode .speed-btn.active { background: #1565c0; color: white; }
   .flashcard { height: 90px; }
   .cover .estonia-bar { width: 140px; }
   .section-toggle { font-size: 9pt; }
+  /* Mobile sidebar: full width bottom sheet */
+  .nav-sidebar { width: 100% !important; height: 75% !important; top: auto !important; bottom: 0 !important; left: 0 !important; border-radius: 20px 20px 0 0; transform: translateY(100%) !important; padding: 16px !important; }
+  .nav-sidebar.open { transform: translateY(0) !important; }
 }
 @media (max-width: 480px) {
   body { padding: 8px 10px; font-size: 9.5pt; }
@@ -595,7 +604,8 @@ body.dark-mode .speed-btn.active { background: #1565c0; color: white; }
 <li><a href="#lesson_plans">Tunnikavad</a></li>
 <li><a href="#workbook">Töövihik</a></li>
 <li><a href="#practice_exams">Proovieksamid</a></li>
-<li><a href="#progress_tracker">Edusammude jälgija</a></li></ul></div><section class="content-section" id="section-ROADMAP" data-title="Õppimise teekaart" data-level="other">
+<li><a href="#progress_tracker">Edusammude jälgija</a></li>
+<li><a href="#e_nagu_eesti"><span class="toc-level A1">A1</span>E nagu Eesti 1-3</a></li></ul></div><section class="content-section" id="section-ROADMAP" data-title="Õppimise teekaart" data-level="other">
 <h1 id="ROADMAP" class="section-other">Õppimise teekaart</h1>
 <blockquote>Täielik samm-sammuline juhend: kust alustada ja kuidas jätkata.<br>Kõik materjalid on samas kaustas.<br>Created: May 2026</blockquote>
 <hr>
@@ -5143,6 +5153,153 @@ Dr Tamm: Tänan teid!</code></pre>
 <p>_______________________________________________________________</p>
 <p>_______________________________________________________________</p>
 </section>
+<section class="content-section" id="section-e_nagu_eesti" data-title="E nagu Eesti 1-3" data-level="A1">
+<h1 id="e_nagu_eesti" class="section-A1">E nagu Eesti 1-3</h1>
+<blockquote>"E nagu Eesti" — популярный учебник эстонского языка для начинающих (Mall Pesti, Helve Ahi).  <br>Здесь собраны основные темы из частей 1-3.</blockquote>
+<hr>
+<h2>1. Tere tulemast! — Добро пожаловать!</h2>
+<h3>Tervitused — Приветствия</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Tere hommikust!</td><td>Доброе утро!</td></tr><tr><td>Tere päevast!</td><td>Добрый день!</td></tr><tr><td>Tere õhtust!</td><td>Добрый вечер!</td></tr><tr><td>Head ööd!</td><td>Спокойной ночи!</td></tr><tr><td>Head aega! / Nägemist!</td><td>До свидания!</td></tr><tr><td>Head päeva!</td><td>Хорошего дня!</td></tr><tr><td>Head õhtut!</td><td>Хорошего вечера!</td></tr><tr><td>Homseni!</td><td>До завтра!</td></tr><tr><td>Tervist!</td><td>Привет! (здравствуйте)</td></tr></table>
+<h3>Tutvumine — Знакомство</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Mina olen Mart.</td><td>Я — Март.</td></tr><tr><td>Kes teie olete?</td><td>Кто вы?</td></tr><tr><td>Kuidas läheb?</td><td>Как дела?</td></tr><tr><td>Hästi. Aga sinul?</td><td>Хорошо. А у тебя?</td></tr><tr><td>Väga meeldiv.</td><td>Очень приятно.</td></tr><tr><td>Kus te elate?</td><td>Где вы живёте?</td></tr><tr><td>Ma elan Viljandis.</td><td>Я живу в Вильянди.</td></tr><tr><td>Tere, minu nimi on Tiit Kivi.</td><td>Здравствуйте, меня зовут Тийт Киви.</td></tr><tr><td>Palun vabandust!</td><td>Извините, пожалуйста!</td></tr></table>
+<h3>Dialoogid — Диалоги</h3>
+<p><strong>Dialoog 1:</strong></p>
+<ul><li>Tere hommikust! Mina olen Mart.</li><li>Tere päevast! Mina olen Tiina.</li><li>Kuidas läheb?</li><li>Hästi. Aga sinul?</li><li>Aitäh, pole viga.</li></ul>
+<p><strong>Dialoog 2:</strong></p>
+<ul><li>Tere! Minu nimi on Tiit Kivi. Mis teie nimi on?</li><li>Tere, minu nimi on Peeter Tamm. Väga meeldiv. Kas te elate Tallinnas?</li><li>Jah. Aga teie?</li><li>Ma elan ka Tallinnas.</li></ul>
+<hr>
+<h2>2. Tähestik ja hääldus — Алфавит и произношение</h2>
+<h3>Eesti tähestik — Эстонский алфавит</h3>
+<table class=""><tr><th>Täht</th><th>Hääldus</th><th>Näide</th></tr><tr><td>A a</td><td>aa</td><td><strong>a</strong>asta (год)</td></tr><tr><td>B b</td><td>bee</td><td><strong>b</strong>uss (автобус)</td></tr><tr><td>C c</td><td>tsee</td><td><strong>ts</strong>irkus (цирк)</td></tr><tr><td>D d</td><td>dee</td><td><strong>d</strong>ivan (диван)</td></tr><tr><td>E e</td><td>ee</td><td><strong>E</strong>esti (Эстония)</td></tr><tr><td>F f</td><td>eff</td><td><strong>f</strong>ilm (фильм)</td></tr><tr><td>G g</td><td>gee</td><td><strong>g</strong>araaž (гараж)</td></tr><tr><td>H h</td><td>haa</td><td><strong>h</strong>ommik (утро)</td></tr><tr><td>I i</td><td>ii</td><td><strong>i</strong>lus (красивый)</td></tr><tr><td>J j</td><td>jott</td><td><strong>j</strong>a (и)</td></tr><tr><td>K k</td><td>kaa</td><td><strong>k</strong>ass (кошка)</td></tr><tr><td>L l</td><td>ell</td><td><strong>l</strong>inn (город)</td></tr><tr><td>M m</td><td>emm</td><td><strong>m</strong>aa (земля)</td></tr><tr><td>N n</td><td>enn</td><td><strong>n</strong>imi (имя)</td></tr><tr><td>O o</td><td>oo</td><td><strong>o</strong>len (я есть)</td></tr><tr><td>P p</td><td>pee</td><td><strong>p</strong>äev (день)</td></tr><tr><td>Q q</td><td>kuu</td><td><strong>q</strong> (в заимствованиях)</td></tr><tr><td>R r</td><td>err</td><td><strong>r</strong>aamat (книга)</td></tr><tr><td>S s</td><td>ess</td><td><strong>s</strong>õber (друг)</td></tr><tr><td>Š š</td><td>šaa</td><td><strong>š</strong>ampoon (шампунь)</td></tr><tr><td>Z z</td><td>zett</td><td><strong>z</strong>ero (ноль)</td></tr><tr><td>Ž ž</td><td>žee</td><td><strong>ž</strong>urnaal (журнал)</td></tr><tr><td>T t</td><td>tee</td><td><strong>t</strong>ubli (молодец)</td></tr><tr><td>U u</td><td>uu</td><td><strong>u</strong>us (новый)</td></tr><tr><td>V v</td><td>vee</td><td><strong>v</strong>ana (старый)</td></tr><tr><td>W w</td><td>kaksisvee</td><td><strong>w</strong>hisky (виски)</td></tr><tr><td>Õ õ</td><td>õõ</td><td><strong>õ</strong>ppima (учиться)</td></tr><tr><td>Ä ä</td><td>ää</td><td><strong>ä</strong>ra (уходи)</td></tr><tr><td>Ö ö</td><td>öö</td><td><strong>ö</strong>ö (ночь)</td></tr><tr><td>Ü ü</td><td>üü</td><td><strong>ü</strong>ks (один)</td></tr></table>
+<h3>Täishäälikud — Гласные</h3>
+<p>Eesti keeles on 9 täishäälikut: <strong>a, e, i, o, u, õ, ä, ö, ü</strong></p>
+<blockquote>A nagu maa (земля)  <br>E nagu **Eesti**  <br>I nagu **ilus** (красивый)  <br>O nagu **hommik** (утро)  <br>U nagu **kuu** (луна)  <br>Õ nagu **õhtu** (вечер)  <br>Ä nagu **päev** (день)  <br>Ö nagu **öö** (ночь)  <br>Ü nagu **üks** (один)</blockquote>
+<hr>
+<h2>3. Numbrid — Числа</h2>
+<h3>1–10</h3>
+<table class="vocab-table"><tr><th>Number</th><th>Eesti</th></tr><tr><td>1</td><td>üks</td></tr><tr><td>2</td><td>kaks</td></tr><tr><td>3</td><td>kolm</td></tr><tr><td>4</td><td>neli</td></tr><tr><td>5</td><td>viis</td></tr><tr><td>6</td><td>kuus</td></tr><tr><td>7</td><td>seitse</td></tr><tr><td>8</td><td>kaheksa</td></tr><tr><td>9</td><td>üheksa</td></tr><tr><td>10</td><td>kümme</td></tr></table>
+<h3>11–20</h3>
+<table class="vocab-table"><tr><th>Number</th><th>Eesti</th></tr><tr><td>11</td><td>üksteist</td></tr><tr><td>12</td><td>kaksteist</td></tr><tr><td>13</td><td>kolmteist</td></tr><tr><td>14</td><td>neliteist</td></tr><tr><td>15</td><td>viisteist</td></tr><tr><td>16</td><td>kuusteist</td></tr><tr><td>17</td><td>seitseteist</td></tr><tr><td>18</td><td>kaheksateist</td></tr><tr><td>19</td><td>üheksateist</td></tr><tr><td>20</td><td>kakskümmend</td></tr></table>
+<h3>Suuremad arvud — Большие числа</h3>
+<table class="vocab-table"><tr><th>Arv</th><th>Eesti</th></tr><tr><td>100</td><td>sada</td></tr><tr><td>1000</td><td>tuhat</td></tr><tr><td>1 000 000</td><td>miljon</td></tr></table>
+<h3>Aadressid — Адреса</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Mere pst 138-45</td><td>ул. Мере 138-45</td></tr><tr><td>Ülikooli 36-23</td><td>ул. Университетская 36-23</td></tr><tr><td>Vene 36-4</td><td>ул. Вене 36-4</td></tr><tr><td>Vilde tee 182-79</td><td>бульвар Вильде 182-79</td></tr><tr><td>Sadama tn 13-67</td><td>ул. Садама 13-67</td></tr></table>
+<p><strong>Telefoninumber:</strong> 56 20 36 17  </p>
+<p><em>viis kuus kaks null kolm kuus üks seitse</em></p>
+<hr>
+<h2>4. Eesti linnad ja maakonnad — Города и уезды Эстонии</h2>
+<h3>Eesti piirkonnad — Регионы Эстонии</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Põhja-Eesti</td><td>Северная Эстония</td></tr><tr><td>Lõuna-Eesti</td><td>Южная Эстония</td></tr><tr><td>Ida-Eesti</td><td>Восточная Эстония</td></tr><tr><td>Lääne-Eesti</td><td>Западная Эстония</td></tr></table>
+<h3>Linnad — Города</h3>
+<table class=""><tr><th>Linn</th><th>Asukoht</th></tr><tr><td>Tallinn</td><td>Põhja-Eestis</td></tr><tr><td>Tartu</td><td>Lõuna-Eestis</td></tr><tr><td>Narva</td><td>Ida-Eestis</td></tr><tr><td>Pärnu</td><td>Lääne-Eestis</td></tr><tr><td>Viljandi</td><td>Lõuna-Eestis</td></tr><tr><td>Rakvere</td><td>Põhja-Eestis</td></tr><tr><td>Haapsalu</td><td>Lääne-Eestis</td></tr><tr><td>Jõhvi</td><td>Ida-Virumaal</td></tr><tr><td>Võru</td><td>Lõuna-Eestis</td></tr><tr><td>Kuressaare</td><td>Saaremaal</td></tr></table>
+<h3>Näitelaused — Примеры</h3>
+<ul><li><strong>Tallinn</strong> asub <strong>Põhja-Eestis</strong>. Tallinn on Eesti pealinn.</li><li><strong>Tartu</strong> asub <strong>Lõuna-Eestis</strong>. Tartus on ülikool.</li><li><strong>Narva</strong> asub <strong>Ida-Eestis</strong>. Narva on vana linn.</li><li><strong>Pärnu</strong> asub <strong>Lääne-Eestis</strong>. Pärnu on kuurortlinn.</li></ul>
+<h3>Rahvaarv — Численность населения</h3>
+<table class=""><tr><th>Linn</th><th>Elanikke</th></tr><tr><td>Tallinn</td><td>~400 000</td></tr><tr><td>Tartu</td><td>~102 000</td></tr><tr><td>Narva</td><td>~66 000</td></tr><tr><td>Kohtla-Järve</td><td>~44 000</td></tr><tr><td>Pärnu</td><td>~44 000</td></tr><tr><td>Viljandi</td><td>~20 000</td></tr><tr><td>Rakvere</td><td>~17 000</td></tr><tr><td>Sillamäe</td><td>~16 000</td></tr><tr><td>Kuressaare</td><td>~15 000</td></tr></table>
+<hr>
+<h2>5. Minu nimi on... — Меня зовут...</h2>
+<h3>Kes sa oled? — Кто ты?</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Kes sa oled?</td><td>Кто ты?</td></tr><tr><td>Mis sinu nimi on?</td><td>Как тебя зовут?</td></tr><tr><td>Kus sa elad?</td><td>Где ты живёшь?</td></tr><tr><td>Mina olen Paul.</td><td>Я — Пауль.</td></tr><tr><td>Minu nimi on Peeter.</td><td>Меня зовут Пеэтер.</td></tr><tr><td>Ma elan Tartus.</td><td>Я живу в Тарту.</td></tr><tr><td>Tema on Artur.</td><td>Он — Артур.</td></tr><tr><td>Tema nimi on Maret.</td><td>Её зовут Марет.</td></tr></table>
+<h3>Pööramine — Спряжение</h3>
+<p><strong>olema (быть):</strong></p>
+<table class=""><tr><th>Isik</th><th>Ainsus</th><th>Mitmus</th></tr><tr><td>1.</td><td>ma <strong>olen</strong></td><td>me <strong>oleme</strong></td></tr><tr><td>2.</td><td>sa <strong>oled</strong></td><td>te <strong>olete</strong></td></tr><tr><td>3.</td><td>ta <strong>on</strong></td><td>nad <strong>on</strong></td></tr></table>
+<blockquote>Ma **olen** tubli. — Я молодец.  <br>Sa **oled** tark. — Ты умный.  <br>Ta **on** siin. — Он/она здесь.  <br>Me **oleme** koos. — Мы вместе.  <br>Nad **on** kodus. — Они дома.</blockquote>
+<p><strong>elama (жить):</strong></p>
+<table class=""><tr><th>Isik</th><th>Ainsus</th><th>Mitmus</th></tr><tr><td>1.</td><td>ma <strong>elan</strong></td><td>me <strong>elame</strong></td></tr><tr><td>2.</td><td>sa <strong>elad</strong></td><td>te <strong>elate</strong></td></tr><tr><td>3.</td><td>ta <strong>elab</strong></td><td>nad <strong>elavad</strong></td></tr></table>
+<blockquote>Ma **elan** Tallinnas. — Я живу в Таллинне.  <br>Sa **elad** Tartus. — Ты живёшь в Тарту.  <br>Ta **elab** Pärnus. — Он/она живёт в Пярну.  <br>Me **elame** Eestis. — Мы живём в Эстонии.  <br>Nad **elavad** Saaremaal. — Они живут на Сааремаа.</blockquote>
+<h3>Eitus — Отрицание</h3>
+<table class=""><tr><th>Jaatus</th><th>Eitus</th></tr><tr><td>Ma <strong>olen</strong> siin.</td><td>Ma <strong>ei ole</strong> siin.</td></tr><tr><td>Ta <strong>elab</strong> Narvas.</td><td>Ta <strong>ei ela</strong> Narvas.</td></tr><tr><td>Me <strong>oleme</strong> kodus.</td><td>Me <strong>ei ole</strong> kodus.</td></tr><tr><td>Nad <strong>elavad</strong> Tallinnas.</td><td>Nad <strong>ei ela</strong> Tallinnas.</td></tr></table>
+<h3>Küsimused — Вопросы</h3>
+<table class=""><tr><th>Küsisõna</th><th>Näide</th></tr><tr><td><strong>Kas?</strong></td><td>Kas te elate Eestis?</td></tr><tr><td><strong>Kes?</strong></td><td>Kes see tüdruk on?</td></tr><tr><td><strong>Kus?</strong></td><td>Kus nad elavad?</td></tr><tr><td><strong>Mis?</strong></td><td>Mis on Eesti pealinn?</td></tr></table>
+<h3>Kus? — koha käänded (локатив)</h3>
+<table class=""><tr><th>Linn</th><th>Kus?</th></tr><tr><td>Tartu</td><td>Tartu<strong>s</strong></td></tr><tr><td>Tallinn</td><td>Tallinna<strong>s</strong></td></tr><tr><td>Narva</td><td>Narva<strong>s</strong></td></tr><tr><td>Pärnu</td><td>Pärnu<strong>s</strong></td></tr><tr><td>Viljandi</td><td>Viljandi<strong>s</strong></td></tr></table>
+<table class=""><tr><th>Saar/Maa</th><th>Kus?</th></tr><tr><td>Saaremaa</td><td>Saaremaa<strong>l</strong></td></tr><tr><td>Hiiumaa</td><td>Hiiumaa<strong>l</strong></td></tr><tr><td>Sillamäe</td><td>Sillamäe<strong>l</strong></td></tr><tr><td>Kohtla-Järve</td><td>Kohtla-Järve<strong>l</strong></td></tr></table>
+<blockquote>**-s** — для городов (Tartu**s**, Tallinna**s**)  <br>**-l** — для островов и некоторых городов (Saaremaa**l**, Sillamäe**l**)  <br>**-l** — также (-maa, -mäe, -järve)</blockquote>
+<hr>
+<h2>6. Eesti sümbolid — Символы Эстонии</h2>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Sinimustvalge lipp</td><td>Сине-чёрно-белый флаг</td></tr><tr><td>Laulu- ja tantsupidu</td><td>Праздник песни и танца</td></tr><tr><td>Rukkileib</td><td>Ржаной хлеб</td></tr><tr><td>Rukkilill</td><td>Василёк</td></tr><tr><td>Suitsupääsuke</td><td>Ласточка</td></tr><tr><td>Suur muna</td><td>(птица)</td></tr><tr><td>Tallinna vanalinn</td><td>Старый город Таллинна</td></tr><tr><td>Tartu ülikool</td><td>Тартуский университет</td></tr><tr><td>Ilusad metsad</td><td>Красивые леса</td></tr><tr><td>1500 saart</td><td>1500 островов</td></tr></table>
+<hr>
+<h2>7. Maad ja keeled — Страны и языки</h2>
+<h3>Riigid, pealinnad ja keeled</h3>
+<table class=""><tr><th>Riik</th><th>Pealinn</th><th>Keel</th></tr><tr><td><strong>Eesti</strong></td><td>Tallinn</td><td>eesti keel</td></tr><tr><td><strong>Soome</strong></td><td>Helsingi</td><td>soome keel</td></tr><tr><td><strong>Rootsi</strong></td><td>Stockholm</td><td>rootsi keel</td></tr><tr><td><strong>Norra</strong></td><td>Oslo</td><td>norra keel</td></tr><tr><td><strong>Taani</strong></td><td>Kopenhaagen</td><td>taani keel</td></tr><tr><td><strong>Läti</strong></td><td>Riia</td><td>läti keel</td></tr><tr><td><strong>Leedu</strong></td><td>Vilnius</td><td>leedu keel</td></tr><tr><td><strong>Venemaa</strong></td><td>Moskva</td><td>vene keel</td></tr><tr><td><strong>Poola</strong></td><td>Varssavi</td><td>poola keel</td></tr><tr><td><strong>Saksamaa</strong></td><td>Berliin</td><td>saksa keel</td></tr><tr><td><strong>Prantsusmaa</strong></td><td>Pariis</td><td>prantsuse keel</td></tr><tr><td><strong>Inglismaa</strong></td><td>London</td><td>inglise keel</td></tr><tr><td><strong>Itaalia</strong></td><td>Rooma</td><td>itaalia keel</td></tr><tr><td><strong>Hispaania</strong></td><td>Madrid</td><td>hispaania keel</td></tr><tr><td><strong>Hiina</strong></td><td>Peking</td><td>hiina keel</td></tr></table>
+<h3>Rahvused — Национальности</h3>
+<table class=""><tr><th>Riik</th><th>Rahvus (ainus)</th><th>Rahvus (mitmus)</th></tr><tr><td>Eesti</td><td>eest<strong>lane</strong></td><td>eest<strong>lased</strong></td></tr><tr><td>Soome</td><td>soom<strong>lane</strong></td><td>soom<strong>lased</strong></td></tr><tr><td>Rootsi</td><td>roots<strong>lane</strong></td><td>roots<strong>lased</strong></td></tr><tr><td>Venemaa</td><td>vene<strong>lane</strong></td><td>vene<strong>lased</strong></td></tr><tr><td>Inglismaa</td><td>ing<strong>lane</strong></td><td>ing<strong>lased</strong></td></tr><tr><td>Saksamaa</td><td>saks<strong>lane</strong></td><td>saks<strong>lased</strong></td></tr><tr><td>Poola</td><td>poolakas</td><td>poolakad</td></tr></table>
+<h3>Näitelaused — Примеры</h3>
+<ul><li>Ma olen <strong>eestlane</strong>. — Я эстонец.</li><li>Kas te olete <strong>soomlane</strong>? — Вы финн?</li><li>Ma räägin <strong>eesti keelt</strong>. — Я говорю по-эстонски.</li><li>Kas sa oskad <strong>inglise keelt</strong>? — Ты знаешь английский?</li><li>Ma õpin <strong>vene keelt</strong>. — Я учу русский язык.</li><li>Minu emakeel on <strong>vene keel</strong>. — Мой родной язык — русский.</li></ul>
+<hr>
+<h2>8. Keelteoskused — Владение языками</h2>
+<h3>Tegusõnad — Глаголы</h3>
+<table class=""><tr><th>Tegusõna</th><th>Ma-vorm</th><th>Ta-vorm</th></tr><tr><td><strong>rääkima</strong> (говорить)</td><td>ma räägi<strong>n</strong></td><td>ta räägi<strong>b</strong></td></tr><tr><td><strong>lugenema</strong> (читать)</td><td>ma loe<strong>n</strong></td><td>ta loe<strong>b</strong></td></tr><tr><td><strong>kirjutama</strong> (писать)</td><td>ma kirjuta<strong>n</strong></td><td>ta kirjuta<strong>b</strong></td></tr><tr><td><strong>õppima</strong> (учить)</td><td>ma õpi<strong>n</strong></td><td>ta õpi<strong>b</strong></td></tr><tr><td><strong>oskama</strong> (уметь)</td><td>ma oska<strong>n</strong></td><td>ta oska<strong>b</strong></td></tr><tr><td><strong>õpetama</strong> (учить/преподавать)</td><td>ma õpeta<strong>n</strong></td><td>ta õpeta<strong>b</strong></td></tr></table>
+<h3>Näited — Примеры</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Ma loen raamatut.</td><td>Я читаю книгу.</td></tr><tr><td>Ta kirjutab harjutust.</td><td>Он/она пишет упражнение.</td></tr><tr><td>Ma oskan eesti keelt.</td><td>Я знаю эстонский язык.</td></tr><tr><td>Ta räägib soome keelt.</td><td>Он/она говорит по-фински.</td></tr><tr><td>Ma ei oska saksa keelt.</td><td>Я не знаю немецкий.</td></tr><tr><td>Ta ei räägi rootsi keelt.</td><td>Он/она не говорит по-шведски.</td></tr><tr><td>Kas sa räägid eesti keelt?</td><td>Ты говоришь по-эстонски?</td></tr><tr><td>Jah, natuke räägin.</td><td>Да, немного говорю.</td></tr><tr><td>Kahjuks ma ei räägi veel hästi.</td><td>К сожалению, я ещё плохо говорю.</td></tr><tr><td>Palun rääkige natuke aeglasemalt!</td><td>Пожалуйста, говорите немного медленнее!</td></tr></table>
+<h3>Dialoog: keelteoskus</h3>
+<p><strong>Dialoog 1:</strong></p>
+<ul><li>Vabandage, kas te räägite eesti keelt?</li><li>Jah, räägin.</li><li>Väga meeldiv. Ma olen venelane, aga räägin ka natuke eesti keelt.</li><li>Kas te elate Venemaal?</li><li>Ei, praegu ma elan Soomes, aga sündinud olen Venemaal.</li></ul>
+<p><strong>Dialoog 2:</strong></p>
+<ul><li>Tere! Mina olen Anne-Liis.</li><li>Tere! Väga meeldiv. Mina olen Mark.</li><li>Ma olen pärit Soomest.</li><li>Tõesti? Te räägite päris hästi eesti keelt.</li><li>Oh, ma räägin ainult natuke.</li><li>Kas te elate Eestis?</li><li>Jah, ma elan praegu Tartus.</li></ul>
+<h3>Sõnad — Слова</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>ma saan aru</td><td>я понимаю</td></tr><tr><td>ma ei saa aru</td><td>я не понимаю</td></tr><tr><td>natuke</td><td>немного</td></tr><tr><td>päris</td><td>довольно</td></tr><tr><td>veel</td><td>ещё</td></tr><tr><td>juba</td><td>уже</td></tr><tr><td>kahjuks</td><td>к сожалению</td></tr><tr><td>tõesti</td><td>действительно</td></tr><tr><td>väga</td><td>очень</td></tr><tr><td>ainult</td><td>только</td></tr><tr><td>praegu</td><td>сейчас</td></tr><tr><td>palun</td><td>пожалуйста</td></tr><tr><td>aeglaselt</td><td>медленно</td></tr></table>
+<hr>
+<h2>9. Kus sa elad? — Где ты живёшь?</h2>
+<h3>Tallinna linnaosad — Районы Таллинна</h3>
+<table class="vocab-table"><tr><th>Linnaosa</th><th>Русский</th></tr><tr><td>Kesklinn</td><td>Центр</td></tr><tr><td>Mustamäe</td><td>Мустамяэ</td></tr><tr><td>Lasnamäe</td><td>Ласнамяэ</td></tr><tr><td>Õismäe</td><td>Ыйсмяэ</td></tr><tr><td>Kalamaja</td><td>Каламая</td></tr><tr><td>Kopli</td><td>Копли</td></tr><tr><td>Kadriorg</td><td>Кадриорг</td></tr><tr><td>Nõmme</td><td>Нымме</td></tr><tr><td>Pirita</td><td>Пирита</td></tr><tr><td>Kristiine</td><td>Кристийне</td></tr></table>
+<h3>Tartu linnaosad — Районы Тарту</h3>
+<table class="vocab-table"><tr><th>Linnaosa</th><th>Русский</th></tr><tr><td>Supilinn</td><td>Супилинн</td></tr><tr><td>Tähtvere</td><td>Тяхтвере</td></tr><tr><td>Karlova</td><td>Карлова</td></tr><tr><td>Annelinn</td><td>Аннелинн</td></tr><tr><td>Tammelinn</td><td>Таммелинн</td></tr><tr><td>Maarjamõisa</td><td>Маарьямыйза</td></tr><tr><td>Ülejõe</td><td>Юлеыэ</td></tr><tr><td>Ihaste</td><td>Ихасте</td></tr></table>
+<h3>Näitelaused</h3>
+<ul><li>Ma elan <strong>Kesklinnas</strong>. — Я живу в центре.</li><li>Mul on <strong>väike korter</strong> Supilinnas. — У меня маленькая квартира в Супилинн.</li><li>Mis <strong>tänaval</strong> sa elad? — На какой улице ты живёшь?</li><li>Mul on <strong>päris suur korter</strong>. — У меня довольно большая квартира.</li><li>Mis <strong>aadress</strong> on? — Какой адрес?</li><li>Mis su <strong>telefoninumber</strong> on? — Какой у тебя номер телефона?</li><li>Kas sul on <strong>maja või korter</strong>? — У тебя дом или квартира?</li></ul>
+<h3>Helistama — Звонить</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>Helista mulle!</td><td>Позвони мне!</td></tr><tr><td>Helista mulle homme!</td><td>Позвони мне завтра!</td></tr><tr><td>Ütle mulle!</td><td>Скажи мне!</td></tr><tr><td>Saada mulle meil!</td><td>Отправь мне email!</td></tr><tr><td>Mis su meiliaadress on?</td><td>Какой у тебя email?</td></tr></table>
+<hr>
+<h2>10. Grammatika — Грамматика</h2>
+<h3>Isikulised asesõnad — Личные местоимения</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>mina / ma</td><td>я</td></tr><tr><td>sina / sa</td><td>ты</td></tr><tr><td>tema / ta</td><td>он / она</td></tr><tr><td>meie / me</td><td>мы</td></tr><tr><td>teie / te</td><td>вы</td></tr><tr><td>nemad / nad</td><td>они</td></tr></table>
+<h3>Minu, sinu, tema... — Притяжательные местоимения</h3>
+<table class=""><tr><th>Nimetav</th><th>Omastav</th></tr><tr><td>mina → <strong>minu</strong> (mu)</td><td>minu korter</td></tr><tr><td>sina → <strong>sinu</strong> (su)</td><td>sinu nimi</td></tr><tr><td>tema → <strong>tema</strong> (ta)</td><td>tema korter</td></tr><tr><td>meie → <strong>meie</strong> (me)</td><td>meie korter</td></tr><tr><td>teie → <strong>teie</strong> (te)</td><td>teie nimed</td></tr><tr><td>nemad → <strong>nende</strong></td><td>nende korter</td></tr></table>
+<h3>Mul, sul, tal... -l vorm</h3>
+<table class=""><tr><th>Isik</th><th>-l vorm</th></tr><tr><td>mina → <strong>mul</strong></td><td>Mul on maja.</td></tr><tr><td>sina → <strong>sul</strong></td><td>Sul on korter.</td></tr><tr><td>tema → <strong>tal</strong></td><td>Tal on ilus maja.</td></tr><tr><td>meie → <strong>meil</strong></td><td>Meil on suur korter.</td></tr><tr><td>teie → <strong>teil</strong></td><td>Teil on uus auto.</td></tr><tr><td>nemad → <strong>neil</strong></td><td>Neil on väike maja.</td></tr></table>
+<h3>Mulle, sulle, talle... -le vorm</h3>
+<table class=""><tr><th>Isik</th><th>-le vorm</th></tr><tr><td>mina → <strong>mulle</strong></td><td>Helista mulle!</td></tr><tr><td>sina → <strong>sulle</strong></td><td>Ma helistan sulle.</td></tr><tr><td>tema → <strong>talle</strong></td><td>Helista talle!</td></tr><tr><td>meie → <strong>meile</strong></td><td>Helistage meile!</td></tr><tr><td>teie → <strong>teile</strong></td><td>Ma helistan teile.</td></tr><tr><td>nemad → <strong>neile</strong></td><td>Me helistame neile.</td></tr></table>
+<h3>Kus? vs Kust? — Где? vs Откуда?</h3>
+<table class=""><tr><th>Kus? (где)</th><th>Kust? (откуда)</th></tr><tr><td>Eesti<strong>s</strong></td><td>Eesti<strong>st</strong></td></tr><tr><td>Tallinna<strong>s</strong></td><td>Tallinna<strong>st</strong></td></tr><tr><td>Saaremaa<strong>l</strong></td><td>Saaremaa<strong>lt</strong></td></tr><tr><td>Tartu<strong>s</strong></td><td>Tartu<strong>st</strong></td></tr></table>
+<ul><li><strong>Kus</strong> sa elad? — Ma elan Eesti<strong>s</strong>.</li><li><strong>Kust</strong> sa pärit oled? — Ma olen pärit Soome<strong>st</strong>.</li><li><strong>Kus</strong> sa oled sündinud? — Ma olen sündinud Moskva<strong>s</strong>.</li></ul>
+<h3>Imperatiiv — Повелительное наклонение</h3>
+<table class=""><tr><th>Tegusõna</th><th>Ainsus (sa)</th><th>Mitmus (te)</th></tr><tr><td>lugema</td><td><strong>Loe!</strong></td><td><strong>Lugege!</strong></td></tr><tr><td>õppima</td><td><strong>Õpi!</strong></td><td><strong>Õppige!</strong></td></tr><tr><td>olema</td><td><strong>Ole!</strong></td><td><strong>Olge!</strong></td></tr><tr><td>rääkima</td><td><strong>Räägi!</strong></td><td><strong>Rääkige!</strong></td></tr><tr><td>kirjutama</td><td><strong>Kirjuta!</strong></td><td><strong>Kirjutage!</strong></td></tr><tr><td>helistama</td><td><strong>Helista!</strong></td><td><strong>Helistage!</strong></td></tr><tr><td>küsima</td><td><strong>Küsi!</strong></td><td><strong>Küsige!</strong></td></tr><tr><td>vabandama</td><td><strong>Vabanda!</strong></td><td><strong>Vabandage!</strong></td></tr><tr><td>ütlema</td><td><strong>Ütle!</strong> / <strong>Ütle!:]</strong></td><td><strong>Öelge!</strong></td></tr><tr><td>vastama</td><td><strong>Vasta!</strong></td><td><strong>Vastake!</strong></td></tr><tr><td>saatma</td><td><strong>Saada!</strong></td><td><strong>Saatke!</strong></td></tr></table>
+<blockquote>**Loe** raamatut! — Читай книгу!  <br>**Õpi** eesti keelt! — Учи эстонский язык!  <br>**Rääkige** aeglasemalt! — Говорите медленнее!  <br>**Kirjuta** harjutus! — Напиши упражнение!  <br>**Vabandage**, kus asub reaalkool? — Извините, где находится реальное училище?</blockquote>
+<hr>
+<h2>11. Sõnavara — Словарь</h2>
+<h3>Kehaosad — Части тела</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td><strong>silm</strong></td><td>глаз</td></tr><tr><td><strong>kõrv</strong></td><td>ухо</td></tr><tr><td><strong>nina</strong></td><td>нос</td></tr><tr><td><strong>suu</strong></td><td>рот</td></tr><tr><td><strong>käsi</strong></td><td>рука</td></tr><tr><td><strong>jalg</strong></td><td>нога</td></tr><tr><td><strong>pea</strong></td><td>голова</td></tr></table>
+<blockquote>Silmad, silmad, nina, suu — глаза, глаза, нос, рот  <br>vasak silm — левый глаз  <br>parem kõrv — правое ухо  <br>nõgu nagu kuu — нос как луна (в шутку)</blockquote>
+<h3>Igapäevased sõnad — Повседневные слова</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Русский</th></tr><tr><td>auto</td><td>машина</td></tr><tr><td>banaan</td><td>банан</td></tr><tr><td>buss</td><td>автобус</td></tr><tr><td>diivan</td><td>диван</td></tr><tr><td>elevant</td><td>слон</td></tr><tr><td>hamburger</td><td>гамбургер</td></tr><tr><td>kohv</td><td>кофе</td></tr><tr><td>pass</td><td>паспорт</td></tr><tr><td>pingviin</td><td>пингвин</td></tr><tr><td>raadio</td><td>радио</td></tr><tr><td>roos</td><td>роза</td></tr><tr><td>rooster</td><td>петух</td></tr><tr><td>sebra</td><td>зебра</td></tr><tr><td>sokolaad</td><td>шоколад</td></tr><tr><td>takso</td><td>такси</td></tr><tr><td>teater</td><td>театр</td></tr><tr><td>televiisor</td><td>телевизор</td></tr><tr><td>tramm</td><td>трамвай</td></tr></table>
+<h3>Vastandid — Антонимы</h3>
+<table class="vocab-table"><tr><th>Eesti</th><th>Eesti</th><th>Русский</th></tr><tr><td><strong>hommik</strong></td><td><strong>õhtu</strong></td><td>утро — вечер</td></tr><tr><td><strong>suur</strong></td><td><strong>väike</strong></td><td>большой — маленький</td></tr><tr><td><strong>kerge</strong></td><td><strong>raske</strong></td><td>легкий — тяжёлый</td></tr><tr><td><strong>vana</strong></td><td><strong>uus</strong></td><td>старый — новый</td></tr><tr><td><strong>ilus</strong></td><td><strong>inetu</strong></td><td>красивый — некрасивый</td></tr><tr><td><strong>päeval</strong></td><td><strong>öösel</strong></td><td>днём — ночью</td></tr></table>
+<hr>
+<h2>12. Harjutused — Упражнения</h2>
+<h3>Harjutus 1: Lõpeta laused — Закончи предложения</h3>
+<p>Lisa lõpp -<strong>n</strong>, -<strong>d</strong>, -<strong>b</strong>, -<strong>me</strong>, -<strong>te</strong>, -<strong>vad</strong>:</p>
+<ol><li>Liisa ela__ Narvas.</li><li>Mina ela__ Tartus.</li><li>Jüri ja Jaan ela__ Jõhvis.</li><li>Kus sa ela__?</li><li>Me ela__ Tallinnas.</li><li>Kes on__ siin?</li><li>Nad ei ela__ Viljandis.</li><li>Kes ela__ Muhus?</li></ol>
+<h3>Harjutus 2: Kas? — Вопросы</h3>
+<p>Vasta küsimustele:</p>
+<ol><li>Kas sa elad Eestis? → Jah, _______________</li><li>Kas ta räägib eesti keelt? → Ei, _______________</li><li>Kas te olete Soomest? → Jah, _______________</li><li>Kas nad elavad Tallinnas? → Ei, _______________</li></ol>
+<h3>Harjutus 3: Kus? või Kust?</h3>
+<ol><li>Peeter elab Soome__. (kus)</li><li>Me elame Saksamaa__. (kus)</li><li>Margarita on pärit Itaalia__. (kust)</li><li>Laura on sündinud Helsingi__. (kus)</li><li>Stockholm asub Rootsi__. (kus)</li><li>Ilze on pärit Läti__. (kust)</li></ol>
+<h3>Harjutus 4: Loe aadressid — Прочитай адреса</h3>
+<ol><li>Ülikooli 36-23, 50034 Tartu</li><li>Vene 36-4, 10104 Tallinn</li><li>Vilde tee 182-79, 11113 Tallinn</li><li>Sadama tn 13-67, 32756 Narva</li></ol>
+<h3>Harjutus 5: Ristsõna "Mis riik?" — Кроссворд "Какая страна?"</h3>
+<table class=""><tr><th>Horisontaalselt</th><th>Vertikaalselt</th></tr><tr><td>4. Varssavi</td><td>1. Lissabon</td></tr><tr><td>7. Kiiev</td><td>2. Madrid</td></tr><tr><td>9. Viin</td><td>3. Oslo</td></tr><tr><td>11. Kopenhaagen</td><td>5. Vilnius</td></tr><tr><td>12. Riia</td><td>6. Bern</td></tr><tr><td>13. Ateena</td><td>8. Rooma</td></tr><tr><td>14. London</td><td>10. Budapest</td></tr></table>
+<hr>
+<h2>7 näpunäidet eesti keele õppimiseks — 7 советов для изучения эстонского</h2>
+<ol><li><strong>Õpi mõnuga!</strong> — Учись с удовольствием! Не относись к жизни, эстонскому языку и этому учебнику слишком серьёзно. Будь терпелив.</li></ol>
+<ol><li><strong>Keskendu rääkimisele ja kuulamisele</strong> — Сосредоточься на разговорной речи и аудировании, а не на длинных объяснениях структуры языка.</li></ol>
+<ol><li><strong>Pea meeles, et sõnavara ja väljendid on kõige tähtsamad</strong> — Помни, что словарный запас и выражения — самое важное. Грамматика придёт вместе с ними.</li></ol>
+<ol><li><strong>Õpi pähe terve lause või väljend korraga</strong> — Учи наизусть целое предложение или фразу сразу. Отдельные слова мало помогут.</li></ol>
+<ol><li><strong>Kasuta oma kujutlusvõimet ja huumorimeelt!</strong> — Используй воображение и чувство юмора! К ошибкам относись дружелюбно.</li></ol>
+<ol><li><strong>Ära kirjuta tõlkeid õpikusse!</strong> — Не пиши переводы в учебнике! Используй цветные стикеры — так ты сможешь позже проверить, что помнишь.</li></ol>
+<ol><li><strong>Kirjuta harjutuste vastused vihikusse</strong> — Пиши ответы к упражнениям в тетрадь, а не в учебник. Упражнения любят, когда их делают несколько раз.</li></ol>
+<hr>
+<blockquote>*"E nagu Eesti" — õpik eesti keele õppimiseks. Autorid: Mall Pesti ja Helve Ahi.*  <br>*www.enagueesti.ee*</blockquote>
+</section>
 <div class="mini-player no-print" id="miniPlayer">
   <div class="track-name" id="trackName">—</div>
   <audio id="miniAudio" controls preload="none"></audio>
@@ -5199,16 +5356,24 @@ Dr Tamm: Tänan teid!</code></pre>
     var input = document.getElementById('searchInput');
     var clear = document.getElementById('searchClear');
     var noResults = document.getElementById('noResults');
+    var matchCount = document.getElementById('searchCount');
     if (!input) return;
 
     input.addEventListener('input', function() {
       var q = this.value.toLowerCase().trim();
-      clear.classList.toggle('visible', q.length > 0);
+      clear.style.display = q.length > 0 ? 'inline' : 'none';
+
+      // Remove old highlights
+      document.querySelectorAll('.search-match').forEach(function(m) {
+        var parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
 
       if (q.length < 2) {
         document.querySelectorAll('.content-section').forEach(function(s) { s.style.display = ''; });
-        document.querySelectorAll('.search-match').forEach(function(m) { m.outerHTML = m.textContent; });
         if (noResults) noResults.style.display = 'none';
+        if (matchCount) matchCount.textContent = '';
         return;
       }
 
@@ -5218,9 +5383,24 @@ Dr Tamm: Tänan teid!</code></pre>
         var match = text.indexOf(q) !== -1;
         section.style.display = match ? '' : 'none';
         if (match) visibleCount++;
+
+        // Highlight matches
+        if (match) {
+          var regex = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\]/g, '\$&') + ')', 'gi');
+          var els = section.querySelectorAll('p, li, td, dd, h1, h2, h3, h4, h5, h6, blockquote');
+          els.forEach(function(el) {
+            if (el.querySelector('script, style, .search-match')) return;
+            if (el.children.length > 0) return; // skip complex elements
+            var html = el.innerHTML;
+            if (regex.test(html)) {
+              el.innerHTML = html.replace(regex, '<span class="search-match">$1</span>');
+            }
+          });
+        }
       });
 
       if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      if (matchCount) matchCount.textContent = visibleCount > 0 ? visibleCount + ' tulemust' : '';
     });
 
     if (clear) {
@@ -5378,56 +5558,99 @@ Dr Tamm: Tänan teid!</code></pre>
     var btn = document.getElementById('navBtn');
     if (!btn) return;
     var expanded = false;
+    var sidebar = null;
+    var overlay = null;
+
+    function closeSidebar() {
+      expanded = false;
+      if (sidebar) {
+        sidebar.classList.remove('open');
+        sidebar.style.transform = 'translateX(-100%)';
+        setTimeout(function() { if (sidebar) { sidebar.remove(); sidebar = null; } }, 300);
+      }
+      if (overlay) { overlay.remove(); overlay = null; }
+    }
+
+    function createSidebar() {
+      sidebar = document.createElement('div');
+      sidebar.id = 'navSidebar';
+      sidebar.className = 'nav-sidebar';
+      var isDark = document.body.classList.contains('dark-mode');
+      var bgColor = isDark ? '#1e1e1e' : 'white';
+      var textColor = isDark ? '#64b5f6' : '#1565c0';
+      var hoverBg = isDark ? '#333' : '#f0f0f0';
+      sidebar.style.cssText = 'position:fixed;top:0;left:0;width:280px;height:100%;background:' + bgColor + ';z-index:2000;box-shadow:2px 0 24px rgba(0,0,0,0.2);overflow-y:auto;padding:20px;transform:translateX(-100%);transition:transform 0.3s;';
+      // Close button
+      var header = document.createElement('div');
+      header.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;';
+      var title = document.createElement('span');
+      title.textContent = '📖 Sisukord';
+      title.style.cssText = 'font-size:14pt;font-weight:700;color:' + (isDark ? '#e0e0e0' : '#333') + ';';
+      header.appendChild(title);
+      var closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕';
+      closeBtn.style.cssText = 'border:none;background:none;font-size:18pt;cursor:pointer;color:inherit;padding:4px 8px;';
+      closeBtn.addEventListener('click', closeSidebar);
+      header.appendChild(closeBtn);
+      sidebar.appendChild(header);
+      // Search in sidebar
+      var searchInput = document.createElement('input');
+      searchInput.type = 'text';
+      searchInput.placeholder = '🔍 Filtreeri...';
+      searchInput.style.cssText = 'width:100%;padding:8px 12px;border:1px solid ' + (isDark ? '#444' : '#ddd') + ';border-radius:8px;font-size:10pt;background:transparent;color:inherit;margin-bottom:12px;box-sizing:border-box;';
+      sidebar.appendChild(searchInput);
+      // List
+      var list = document.createElement('ul');
+      list.style.cssText = 'list-style:none;padding:0;margin:0;';
+      function buildList(filter) {
+        list.innerHTML = '';
+        document.querySelectorAll('.content-section').forEach(function(s) {
+          var title = s.getAttribute('data-title') || 'Section';
+          var level = s.getAttribute('data-level') || '';
+          var text = (level !== 'other' ? '[' + level + '] ' : '') + title;
+          if (filter && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) return;
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = text;
+          a.href = '#' + s.id.replace('section-', '');
+          a.setAttribute('data-target', s.id.replace('section-', ''));
+          a.style.cssText = 'display:block;padding:8px 12px;border-radius:6px;color:' + textColor + ';text-decoration:none;font-size:10pt;margin:2px 0;';
+          a.addEventListener('mouseenter', function() { this.style.background = hoverBg; });
+          a.addEventListener('mouseleave', function() { this.style.background = 'transparent'; });
+          a.addEventListener('click', function(e) { e.preventDefault(); var target = this.getAttribute('data-target'); closeSidebar(); if (target) document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); });
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      }
+      buildList('');
+      sidebar.appendChild(list);
+      // Filter
+      searchInput.addEventListener('input', function() { buildList(this.value); });
+      // Overlay
+      overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:1999;';
+      overlay.addEventListener('click', closeSidebar);
+      document.body.appendChild(overlay);
+      document.body.appendChild(sidebar);
+      setTimeout(function() { if (sidebar) { sidebar.classList.add('open'); sidebar.style.transform = 'translateX(0)'; } }, 10);
+      // Observe dark mode
+      var obs = new MutationObserver(function() {
+        if (!sidebar) return;
+        var isDarkMode = document.body.classList.contains('dark-mode');
+        sidebar.style.background = isDarkMode ? '#1e1e1e' : 'white';
+        sidebar.querySelectorAll('a').forEach(function(a) { a.style.color = isDarkMode ? '#64b5f6' : '#1565c0'; });
+        sidebar.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('mouseenter', function() { this.style.background = isDarkMode ? '#333' : '#f0f0f0'; });
+          a.addEventListener('mouseleave', function() { this.style.background = 'transparent'; });
+        });
+      });
+      obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
+
     btn.addEventListener('click', function() {
       expanded = !expanded;
-      var sidebar = document.getElementById('navSidebar');
-      if (expanded) {
-        if (!sidebar) {
-          sidebar = document.createElement('div');
-          sidebar.id = 'navSidebar';
-          sidebar.style.cssText = 'position:fixed;top:0;left:0;width:280px;height:100%;background:white;z-index:2000;box-shadow:2px 0 24px rgba(0,0,0,0.2);overflow-y:auto;padding:20px;transform:translateX(-100%);transition:transform 0.3s;';
-          if (document.body.classList.contains('dark-mode')) sidebar.style.background = '#1e1e1e';
-          var closeBtn = document.createElement('button');
-          closeBtn.textContent = '✕';
-          closeBtn.style.cssText = 'float:right;border:none;background:none;font-size:18pt;cursor:pointer;color:inherit;';
-          closeBtn.addEventListener('click', function() { expanded = false; sidebar.style.transform = 'translateX(-100%)'; setTimeout(function() { sidebar.remove(); }, 300); });
-          sidebar.appendChild(closeBtn);
-          var list = document.createElement('ul');
-          list.style.cssText = 'list-style:none;padding:0;margin-top:30px;';
-          document.querySelectorAll('.content-section').forEach(function(s) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            var title = s.getAttribute('data-title') || 'Section';
-            var level = s.getAttribute('data-level') || '';
-            a.textContent = (level !== 'other' ? '[' + level + '] ' : '') + title;
-            a.href = '#' + s.id.replace('section-', '');
-            a.setAttribute('data-target', s.id.replace('section-', ''));
-            a.style.cssText = 'display:block;padding:8px 12px;border-radius:6px;color:#1565c0;text-decoration:none;font-size:10pt;margin:2px 0;';
-            if (document.body.classList.contains('dark-mode')) a.style.color = '#64b5f6';
-            a.addEventListener('mouseenter', function() { this.style.background = '#f0f0f0'; if (document.body.classList.contains('dark-mode')) this.style.background = '#333'; });
-            a.addEventListener('mouseleave', function() { this.style.background = 'transparent'; });
-            a.addEventListener('click', function(e) { e.preventDefault(); var target = this.getAttribute('data-target'); expanded = false; sidebar.style.transform = 'translateX(-100%)'; setTimeout(function() { sidebar.remove(); }, 300); if (target) document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); });
-            li.appendChild(a);
-            list.appendChild(li);
-          });
-          sidebar.appendChild(list);
-          var overlay = document.createElement('div');
-          overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:1999;display:none;';
-          overlay.addEventListener('click', function() { expanded = false; sidebar.style.transform = 'translateX(-100%)'; setTimeout(function() { sidebar.remove(); overlay.remove(); }, 300); });
-          document.body.appendChild(overlay);
-          overlay.style.display = 'block';
-          document.body.appendChild(sidebar);
-          setTimeout(function() { sidebar.style.transform = 'translateX(0)'; }, 10);
-          // Update sidebar dark mode
-          var obs = new MutationObserver(function() {
-            if (document.body.classList.contains('dark-mode')) sidebar.style.background = '#1e1e1e';
-            else sidebar.style.background = 'white';
-          });
-          obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-        }
-      } else {
-        if (sidebar) sidebar.style.transform = 'translateX(-100%)';
-      }
+      if (expanded) { if (!sidebar) createSidebar(); }
+      else { closeSidebar(); }
     });
   }
 

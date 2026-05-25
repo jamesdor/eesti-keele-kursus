@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - 'generate_pdf.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow
+
+      - name: Generate HTML
+        run: python generate_pdf.py
+
+      - name: Copy files to publish directory
+        run: |
+          mkdir -p publish
+          cp eesti_keele_kursus.html publish/index.html
+          cp manifest.json publish/
+          cp sw.js publish/
+          cp icon-192.png publish/
+          cp icon-512.png publish/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          destination_dir: ./
+          keep_files: false
+YAMLOF
+
+echo "Workflow file created"
+
+# Also need a copy of generate_pdf.py and all .md files in the repo
+# Let's set up a proper repo structure
+cd /tmp/eesti-keele-site
+mkdir -p publish
+echo "Repo structure ready"
+
+ls -la .github/workflows/

@@ -756,7 +756,7 @@ INTERACTIVE_JS = """
     var btn = document.getElementById('topBtn');
     if (!btn) return;
     window.addEventListener('scroll', function() {
-      btn.classList.toggle('visible', window.scrollY > 400);
+      btn.classList.toggle('visible', window.scrollY > 200);
     });
     btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
@@ -1490,7 +1490,7 @@ def main():
 
     # Write service worker
     sw = """// Eesti Keele Kursus — Service Worker
-const CACHE = 'eesti-keele-v1';
+const CACHE = 'eesti-keele-v2';
 const URLS = [
   'eesti_keele_kursus.html',
   'manifest.json',

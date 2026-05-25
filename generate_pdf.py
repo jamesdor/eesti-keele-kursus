@@ -97,6 +97,7 @@ HEADER = """<!DOCTYPE html>
     position: relative; overflow: hidden;
     box-shadow: 0 8px 40px rgba(0,0,0,0.15);
   }
+  /* Decorative flag waves */
   .cover::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     background-image:
@@ -105,49 +106,96 @@ HEADER = """<!DOCTYPE html>
       radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 70%);
     pointer-events: none;
   }
+  /* Decorative stripes — subtle flag waves */
+  .cover .bg-stripe {
+    position: absolute; left: -10%; right: -10%; height: 60px;
+    opacity: 0.06; pointer-events: none;
+    border-radius: 30%;
+    animation: coverWave 6s ease-in-out infinite;
+  }
+  .cover .bg-stripe:nth-child(1) { top: 15%; background: #0072ce; animation-delay: 0s; }
+  .cover .bg-stripe:nth-child(2) { top: 35%; background: #000; animation-delay: 1s; }
+  .cover .bg-stripe:nth-child(3) { top: 55%; background: #fff; animation-delay: 2s; }
+  .cover .bg-stripe:nth-child(4) { top: 72%; background: #0072ce; animation-delay: 3s; }
+  @keyframes coverWave {
+    0%, 100% { transform: translateX(0) scaleY(1); }
+    50% { transform: translateX(2%) scaleY(1.2); }
+  }
+  /* Decorative circles */
+  .cover .deco-circle {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    opacity: 0.04; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .cover .deco-circle:nth-child(5) { width: 300px; height: 300px; top: -80px; right: -60px; }
+  .cover .deco-circle:nth-child(6) { width: 200px; height: 200px; bottom: -40px; left: -60px; }
+  .cover .deco-circle:nth-child(7) { width: 150px; height: 150px; bottom: 20%; right: 10%; }
   .cover::after {
     content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 80px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.15));
+    height: 120px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.2));
     pointer-events: none;
   }
-  .cover .cover-inner { position: relative; z-index: 1; }
+  .cover .cover-inner { position: relative; z-index: 2; }
+  /* Badge "UUS!" */
+  .cover .badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    background: linear-gradient(135deg, #ff6f00, #ff8f00);
+    color: white; font-size: 9pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 20px;
+    animation: badgePulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+  }
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(255,111,0,0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255,111,0,0.5); }
+  }
   .cover .flag-row {
     display: flex; justify-content: center; align-items: center; gap: 24px; margin: 0 0 24px;
   }
-  .cover .flag-row svg {
-    width: 96px; height: 64px; border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+  .cover .flag-item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
   }
-  .cover .flag-row svg:hover { transform: scale(1.08); }
+  .cover .flag-item svg {
+    width: 96px; height: 64px; border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .cover .flag-item svg:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  .cover .flag-label { font-size: 7pt; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
   .cover .flag-divider {
-    width: 2px; height: 40px; background: rgba(255,255,255,0.15);
+    width: 1px; height: 50px; background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
   }
   .cover h1 {
-    font-size: 40pt; border: none; text-align: center; color: white;
-    margin: 0 0 8px; font-weight: 800; letter-spacing: -1.5px;
+    font-size: 44pt; border: none; text-align: center; color: white;
+    margin: 0 0 8px; font-weight: 800; letter-spacing: -2px;
     text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-    background: linear-gradient(135deg, #ffffff 0%, #90caf9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #90caf9 50%, #64b5f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.1;
   }
   .cover .subtitle {
-    font-size: 16pt; color: rgba(255,255,255,0.85);
-    margin: 0 0 12px; font-weight: 300;
+    font-size: 17pt; color: rgba(255,255,255,0.85);
+    margin: 0 0 8px; font-weight: 300;
     letter-spacing: 0.5px;
   }
+  .cover .subtitle-em {
+    font-size: 12pt; color: rgba(255,255,255,0.55);
+    margin: 0 0 4px; font-weight: 300;
+    font-style: italic;
+  }
   .cover .estonia-bar {
-    display: flex; height: 4px; width: 200px; margin: 20px auto; border-radius: 2px; overflow: hidden;
+    display: flex; height: 4px; width: 240px; margin: 22px auto; border-radius: 2px; overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.15);
   }
   .cover .estonia-bar span { flex: 1; }
   .cover .estonia-bar .blue { background: #0072ce; }
   .cover .estonia-bar .black { background: #000; }
   .cover .estonia-bar .white { background: #fff; }
   .cover .stats {
-    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-    margin: 24px auto 0; max-width: 600px;
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    margin: 24px auto 0; max-width: 650px;
   }
   .cover .stat {
     text-align: center;
@@ -155,30 +203,33 @@ HEADER = """<!DOCTYPE html>
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px; padding: 16px 20px; min-width: 100px;
-    transition: transform 0.2s ease, background 0.2s ease;
+    border-radius: 12px; padding: 14px 18px; min-width: 90px;
+    transition: transform 0.3s ease, background 0.3s ease;
   }
-  .cover .stat:hover { transform: translateY(-2px); background: rgba(255,255,255,0.12); }
-  .cover .stat-num { font-size: 22pt; font-weight: 700; color: rgba(255,255,255,0.95); }
-  .cover .stat-label { font-size: 8pt; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+  .cover .stat:hover { transform: translateY(-3px); background: rgba(255,255,255,0.14); }
+  .cover .stat-num { font-size: 20pt; font-weight: 700; color: rgba(255,255,255,0.95); }
+  .cover .stat-label { font-size: 7.5pt; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+  .cover .stat-highlight .stat-num { color: #ffcc02; }
   .cover .start-btn {
-    display: inline-block; margin: 28px auto 0; padding: 12px 36px;
-    border-radius: 30px; border: 2px solid rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    display: inline-block; margin: 28px auto 0; padding: 14px 42px;
+    border-radius: 30px; border: 2px solid rgba(255,255,255,0.35);
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: white; font-size: 11pt; font-weight: 600;
     cursor: pointer; text-decoration: none;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
   }
   .cover .start-btn:hover {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.12));
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
   }
-  .cover .meta { margin-top: 24px; font-size: 9pt; color: rgba(255,255,255,0.45); }
+  .cover .start-btn-arrow { display: inline-block; transition: transform 0.3s ease; margin-left: 4px; }
+  .cover .start-btn:hover .start-btn-arrow { transform: translateX(4px); }
+  .cover .meta { margin-top: 28px; font-size: 8pt; color: rgba(255,255,255,0.4); line-height: 1.6; }
 
   /* ===== ЗАГОЛОВКИ ===== */
   h1 {
@@ -341,43 +392,58 @@ HEADER = """<!DOCTYPE html>
 </head>
 <body>
 <div class="cover">
+  <div class="bg-stripe"></div>
+  <div class="bg-stripe"></div>
+  <div class="bg-stripe"></div>
+  <div class="bg-stripe"></div>
+  <div class="deco-circle"></div>
+  <div class="deco-circle"></div>
+  <div class="deco-circle"></div>
   <div class="cover-inner">
+    <div class="badge">✦ Uus: E nagu Eesti ✦</div>
     <div class="flag-row">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 54">
-        <rect width="80" height="18" fill="#0072ce"/>
-        <rect y="18" width="80" height="18" fill="#000"/>
-        <rect y="36" width="80" height="18" fill="#fff"/>
-      </svg>
+      <div class="flag-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 54">
+          <rect width="80" height="18" fill="#0072ce"/>
+          <rect y="18" width="80" height="18" fill="#000"/>
+          <rect y="36" width="80" height="18" fill="#fff"/>
+        </svg>
+        <span class="flag-label">Eesti</span>
+      </div>
       <div class="flag-divider"></div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 54">
-        <rect width="80" height="54" fill="#039"/>
-        <defs><polygon id="star" points="0,-4 1,-1.2 4.2,-1.4 1.6,0.6 2.6,3.8 0,1.8 -2.6,3.8 -1.6,0.6 -4.2,-1.4 -1,-1.2" fill="#fc0"/></defs>
-        <use href="#star" x="40" y="9"/>
-        <use href="#star" x="50" y="11.5"/>
-        <use href="#star" x="56" y="19"/>
-        <use href="#star" x="54" y="28"/>
-        <use href="#star" x="46" y="33"/>
-        <use href="#star" x="34" y="33"/>
-        <use href="#star" x="26" y="28"/>
-        <use href="#star" x="24" y="19"/>
-        <use href="#star" x="30" y="11.5"/>
-      </svg>
+      <div class="flag-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 54">
+          <rect width="80" height="54" fill="#039"/>
+          <defs><polygon id="star" points="0,-4 1,-1.2 4.2,-1.4 1.6,0.6 2.6,3.8 0,1.8 -2.6,3.8 -1.6,0.6 -4.2,-1.4 -1,-1.2" fill="#fc0"/></defs>
+          <use href="#star" x="40" y="9"/>
+          <use href="#star" x="50" y="11.5"/>
+          <use href="#star" x="56" y="19"/>
+          <use href="#star" x="54" y="28"/>
+          <use href="#star" x="46" y="33"/>
+          <use href="#star" x="34" y="33"/>
+          <use href="#star" x="26" y="28"/>
+          <use href="#star" x="24" y="19"/>
+          <use href="#star" x="30" y="11.5"/>
+        </svg>
+        <span class="flag-label">Euroopa</span>
+      </div>
     </div>
-    <h1>Eesti Keele Kursus</h1>
+    <h1>Eesti Keele<br>Kursus</h1>
     <p class="subtitle">Täielik õppematerjalide kogu A1–C1</p>
+    <p class="subtitle-em">"E nagu Eesti" ja palju muud</p>
     <div class="estonia-bar">
       <span class="blue"></span>
       <span class="black"></span>
       <span class="white"></span>
     </div>
     <div class="stats">
-      <div class="stat"><div class="stat-num">25</div><div class="stat-label">Faili</div></div>
-      <div class="stat"><div class="stat-num">14 000+</div><div class="stat-label">Rida</div></div>
-      <div class="stat"><div class="stat-num">A1–C1</div><div class="stat-label">Tasemed</div></div>
-      <div class="stat"><div class="stat-num">2000+</div><div class="stat-label">Sõna</div></div>
+      <div class="stat"><div class="stat-num">26</div><div class="stat-label">Õppematerjali</div></div>
+      <div class="stat"><div class="stat-num">15 000+</div><div class="stat-label">Rida teksti</div></div>
+      <div class="stat stat-highlight"><div class="stat-num">UUS</div><div class="stat-label">E nagu Eesti</div></div>
+      <div class="stat"><div class="stat-num">A1–C1</div><div class="stat-label">Kõik tasemed</div></div>
     </div>
-    <a href="#ROADMAP" class="start-btn">Alusta siit →</a>
-    <p class="meta">Loodud: mai 2026 · Kõik materjalid on originaalsed</p>
+    <a href="#ROADMAP" class="start-btn">Alusta siit <span class="start-btn-arrow">→</span></a>
+    <p class="meta">Loodud: mai 2026 · 26 faili · 15 000+ rida · Kõik materjalid on originaalsed</p>
   </div>
 </div>
 <div class="search-no-print">

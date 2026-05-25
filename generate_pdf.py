@@ -2011,7 +2011,35 @@ FOOTER = """
 </body>
 </html>"""
 
-def md_to_html(text):
+def extract_toc_anchors(text):
+    """Extract numbered TOC anchor IDs from markdown text."""
+    anchors = {}
+    for line in text.split('\n'):
+        m = re.search(r'\[([^\]]*)\]\(#(\d+-[^)]+)\)', line)
+        if m:
+            anchor = m.group(2)
+            num = anchor.split('-')[0]
+            anchors[num] = anchor
+    return anchors
+
+
+def make_heading_id(text):
+    """Generate anchor ID from heading text (matches TOC link format)."""
+    text = text.strip()
+    m = re.match(r'^(\d+)[.)\s]\s*(.*)', text)
+    if m:
+        num = m.group(1)
+        rest = m.group(2)
+        first_word = rest.split()[0] if rest.split() else ''
+        # Keep Estonian characters, lowercase
+        slug = re.sub(r'[^a-z0-9äöüõšž]', '', first_word.lower())
+        return f'{num}-{slug}'
+    # Fallback: slugify the whole text
+    slug = re.sub(r'[^a-z0-9äöüõšž\s-]', '', text.lower())
+    slug = re.sub(r'\s+', '-', slug).strip('-')
+    return slug if slug else 'heading'
+
+def md_to_html(text, anchor_map=None):
     """Convert basic markdown to HTML."""
     lines = text.split('\n')
     html = []
@@ -2026,19 +2054,26 @@ def md_to_html(text):
             i += 1
             continue
 
-        # Headings
+        # Headings with anchor IDs
         if line.startswith('###### '):
-            html.append(f'<h6>{line[7:]}</h6>')
+            html.append(f'<h6 id="{make_heading_id(line[7:])}">{line[7:]}</h6>')
         elif line.startswith('##### '):
-            html.append(f'<h5>{line[6:]}</h5>')
+            html.append(f'<h5 id="{make_heading_id(line[6:])}">{line[6:]}</h5>')
         elif line.startswith('#### '):
-            html.append(f'<h4>{line[5:]}</h4>')
+            html.append(f'<h4 id="{make_heading_id(line[5:])}">{line[5:]}</h4>')
         elif line.startswith('### '):
-            html.append(f'<h3>{line[4:]}</h3>')
+            html.append(f'<h3 id="{make_heading_id(line[4:])}">{line[4:]}</h3>')
         elif line.startswith('## '):
-            html.append(f'<h2>{line[3:]}</h2>')
+            # Check if anchor_map has a matching anchor for numbered headings
+            h_text = line[3:]
+            m = re.match(r'^(\d+)[.)\s]', h_text)
+            if m and anchor_map and m.group(1) in anchor_map:
+                anchor = anchor_map[m.group(1)]
+                html.append(f'<h2 id="{anchor}">{h_text}</h2>')
+            else:
+                html.append(f'<h2 id="{make_heading_id(h_text)}">{h_text}</h2>')
         elif line.startswith('# '):
-            html.append(f'<h1>{line[2:]}</h1>')
+            html.append(f'<h1 id="{make_heading_id(line[2:])}">{line[2:]}</h1>')
 
         # Blockquote
         elif line.startswith('> '):
@@ -2212,7 +2247,8 @@ def main():
             content = f.read()
 
         content = clean_md_content(content, fname)
-        body = md_to_html(content)
+        anchors = extract_toc_anchors(content)
+        body = md_to_html(content, anchors)
 
         section_id = fname.replace(".md", "")
         all_html.append(f'<section class="content-section" id="section-{section_id}" data-title="{title}" data-level="{level}">')

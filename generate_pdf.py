@@ -708,6 +708,71 @@ body.dark-mode .speed-btn.active { background: #1565c0; color: white; }
 
 /* ===== PRINT OVERRIDES ===== */
 @media print { .no-print, .floating-controls, .mini-player, .audio-play-btn, .search-container, .level-filter, .trans-toggle, .font-controls, .copy-btn, .section-toggle { display: none !important; } .search-no-print { display: none !important; } .flashcard-container { display: table; } .flashcard { display: table-row; } .flashcard-inner { transform: none !important; } .flashcard-back { display: none; } .content-section.collapsed h1 ~ * { display: block !important; } }
+
+/* ===== INTERACTIVE QUIZ ===== */
+.quiz-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.quiz-overlay.active { display: flex; }
+.quiz-container { background: #fff; border-radius: 16px; padding: 32px; max-width: 520px; width: 92%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; position: relative; max-height: 90vh; overflow-y: auto; }
+.quiz-header { margin-bottom: 8px; }
+.quiz-title { font-size: 14pt; font-weight: 700; color: #1565c0; }
+.quiz-subtitle { font-size: 9pt; color: #999; margin-top: 2px; }
+.quiz-progress { height: 4px; background: #e0e0e0; border-radius: 2px; margin: 16px 0; overflow: hidden; }
+.quiz-progress-fill { height: 100%; background: linear-gradient(90deg, #1565c0, #42a5f5); transition: width 0.4s; border-radius: 2px; }
+.quiz-card { min-height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 28px 24px; margin: 12px 0; background: #f5f7fa; border-radius: 14px; border: 2px solid #e8eaf0; }
+.quiz-card-word { font-size: 26pt; font-weight: 700; color: #0d47a1; margin-bottom: 6px; line-height: 1.3; }
+.quiz-card-hint { font-size: 9pt; color: #aaa; margin-top: 4px; }
+.quiz-answer { font-size: 16pt; color: #2e7d32; font-weight: 600; margin: 12px 0 4px; display: none; padding: 14px; background: #e8f5e9; border-radius: 10px; width: 100%; }
+.quiz-answer.show { display: block; animation: quizFadeIn 0.3s; }
+.quiz-answer-sub { font-size: 10pt; color: #666; font-weight: 400; margin-top: 6px; }
+.quiz-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.quiz-btn { padding: 12px 28px; border: none; border-radius: 10px; font-size: 11pt; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.quiz-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.quiz-btn:active { transform: translateY(0); }
+.quiz-btn:disabled { opacity: 0.4; cursor: default; transform: none !important; box-shadow: none !important; }
+.quiz-btn-show { background: #1565c0; color: white; flex: 1; max-width: 200px; }
+.quiz-btn-correct { background: #4caf50; color: white; flex: 1; display: none; }
+.quiz-btn-incorrect { background: #f44336; color: white; flex: 1; display: none; }
+.quiz-btn-restart { background: #1565c0; color: white; }
+.quiz-btn-close { background: #f5f5f5; color: #666; }
+.quiz-close-btn { position: absolute; top: 10px; right: 14px; font-size: 22pt; cursor: pointer; color: #999; background: none; border: none; line-height: 1; padding: 4px; z-index: 10; }
+.quiz-close-btn:hover { color: #333; }
+.quiz-counter { font-size: 10pt; color: #999; margin-bottom: 4px; }
+.quiz-result { display: none; }
+.quiz-result.show { display: block; animation: quizFadeIn 0.5s; }
+.quiz-result-emoji { font-size: 48pt; margin: 8px 0; }
+.quiz-result-score { font-size: 28pt; font-weight: 800; margin: 8px 0; color: #1565c0; }
+.quiz-result-text { font-size: 11pt; color: #666; margin-bottom: 12px; }
+.quiz-result-stats { display: flex; justify-content: center; gap: 32px; margin: 16px 0; }
+.quiz-result-stat { text-align: center; }
+.quiz-result-stat-num { font-size: 20pt; font-weight: 700; }
+.quiz-result-stat-label { font-size: 9pt; color: #999; }
+.quiz-result-stat.correct .quiz-result-stat-num { color: #4caf50; }
+.quiz-result-stat.incorrect .quiz-result-stat-num { color: #f44336; }
+.quiz-wrong-title { font-size: 10pt; font-weight: 600; color: #d32f2f; text-align: left; margin-top: 16px; display: none; }
+.quiz-wrong-title.show { display: block; }
+.quiz-wrong-list { text-align: left; margin: 4px 0 0; padding: 0; max-height: 180px; overflow-y: auto; display: none; }
+.quiz-wrong-list.show { display: block; }
+.quiz-wrong-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-bottom: 1px solid #f0f0f0; font-size: 10pt; }
+.quiz-wrong-item:first-child { border-top: 1px solid #f0f0f0; }
+.quiz-wrong-item .qw-front { font-weight: 600; color: #d32f2f; }
+.quiz-wrong-item .qw-back { color: #666; }
+.quiz-start-btn { display: block; width: 100%; padding: 12px; margin: 12px 0; border: 2px dashed #90caf9; border-radius: 10px; background: #e3f2fd; color: #1565c0; font-size: 11pt; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.quiz-start-btn:hover { background: #bbdefb; border-color: #1565c0; transform: translateY(-1px); }
+body.dark-mode .quiz-container { background: #1e1e1e; }
+body.dark-mode .quiz-title { color: #64b5f6; }
+body.dark-mode .quiz-card { background: #2a2a2a; border-color: #333; }
+body.dark-mode .quiz-card-word { color: #90caf9; }
+body.dark-mode .quiz-answer { background: #1b3d1b; color: #a5d6a7; }
+body.dark-mode .quiz-answer-sub { color: #aaa; }
+body.dark-mode .quiz-btn-close { background: #333; color: #aaa; }
+body.dark-mode .quiz-btn-close:hover { color: #fff; }
+body.dark-mode .quiz-start-btn { background: #1a3a5c; border-color: #1565c0; color: #90caf9; }
+body.dark-mode .quiz-start-btn:hover { background: #0d213f; }
+body.dark-mode .quiz-result-text { color: #aaa; }
+body.dark-mode .quiz-wrong-item { border-color: #333; }
+body.dark-mode .quiz-close-btn { color: #666; }
+body.dark-mode .quiz-close-btn:hover { color: #fff; }
+@keyframes quizFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 """
 
@@ -940,6 +1005,230 @@ INTERACTIVE_JS = """
       if (known[i].toLowerCase().indexOf(lower) !== -1) return known[i];
     }
     return null;
+  }
+
+  // ===== INTERACTIVE QUIZ =====
+  function initQuiz() {
+    // Find vocab tables and add "Start Quiz" buttons
+    document.querySelectorAll('.vocab-table').forEach(function(table, idx) {
+      var rows = table.querySelectorAll('tr');
+      if (rows.length < 2) return;
+      var cards = [];
+      var headerCells = rows[0].querySelectorAll('th');
+      for (var r = 1; r < rows.length; r++) {
+        var cells = rows[r].querySelectorAll('td');
+        if (cells.length < 2) continue;
+        var front = cells[0].textContent.trim();
+        var backParts = [];
+        for (var c = 1; c < cells.length; c++) {
+          var txt = cells[c].textContent.trim();
+          if (txt) backParts.push(txt);
+        }
+        if (front && backParts.length) cards.push({ front: front, back: backParts.join(' — ') });
+      }
+      if (cards.length < 2) return;
+
+      // Create quiz button
+      var wrapper = table.parentNode;
+      var btn = document.createElement('button');
+      btn.className = 'quiz-start-btn no-print';
+      btn.textContent = '🎯 Alusta viktoriini (' + cards.length + ' kaarti)';
+      btn.addEventListener('click', function() { startQuiz(cards, table); });
+      // Insert after table
+      if (table.nextSibling) {
+        wrapper.insertBefore(btn, table.nextSibling);
+      } else {
+        wrapper.appendChild(btn);
+      }
+    });
+  }
+
+  function startQuiz(cards, table) {
+    // Create overlay if it doesn't exist
+    var overlay = document.getElementById('quizOverlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'quizOverlay';
+      overlay.className = 'quiz-overlay';
+      overlay.innerHTML =
+        '<div class="quiz-container">' +
+          '<button class="quiz-close-btn" id="quizClose">&times;</button>' +
+          '<div class="quiz-header">' +
+            '<div class="quiz-title">🎯 Viktoriin</div>' +
+            '<div class="quiz-subtitle">Eesti keele sõnavara</div>' +
+          '</div>' +
+          '<div class="quiz-counter" id="quizCounter"></div>' +
+          '<div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgress"></div></div>' +
+          '<div class="quiz-card" id="quizCard">' +
+            '<div class="quiz-card-word" id="quizWord"></div>' +
+            '<div class="quiz-card-hint" id="quizHint"></div>' +
+            '<div class="quiz-answer" id="quizAnswer">' +
+              '<div id="quizAnswerText"></div>' +
+              '<div class="quiz-answer-sub" id="quizAnswerSub"></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="quiz-buttons" id="quizButtons">' +
+            '<button class="quiz-btn quiz-btn-show" id="quizBtnShow">👁 Näita vastust</button>' +
+            '<button class="quiz-btn quiz-btn-correct" id="quizBtnCorrect">✓ Õige</button>' +
+            '<button class="quiz-btn quiz-btn-incorrect" id="quizBtnWrong">✗ Vale</button>' +
+          '</div>' +
+          '<div class="quiz-result" id="quizResult">' +
+            '<div class="quiz-result-emoji" id="quizResultEmoji"></div>' +
+            '<div class="quiz-result-score" id="quizResultScore"></div>' +
+            '<div class="quiz-result-text" id="quizResultText"></div>' +
+            '<div class="quiz-result-stats">' +
+              '<div class="quiz-result-stat correct"><div class="quiz-result-stat-num" id="quizStatCorrect">0</div><div class="quiz-result-stat-label">Õige</div></div>' +
+              '<div class="quiz-result-stat incorrect"><div class="quiz-result-stat-num" id="quizStatWrong">0</div><div class="quiz-result-stat-label">Vale</div></div>' +
+            '</div>' +
+            '<div class="quiz-wrong-title" id="quizWrongTitle">❌ Vaja uuesti õppida:</div>' +
+            '<div class="quiz-wrong-list" id="quizWrongList"></div>' +
+            '<div style="margin-top:16px;display:flex;gap:10px;justify-content:center">' +
+              '<button class="quiz-btn quiz-btn-restart" id="quizBtnRestart">🔄 Uuesti</button>' +
+              '<button class="quiz-btn quiz-btn-close" id="quizBtnClose">Sulge</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+
+      // Close handlers
+      document.getElementById('quizClose').addEventListener('click', closeQuiz);
+      document.getElementById('quizBtnClose').addEventListener('click', closeQuiz);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeQuiz();
+      });
+      document.getElementById('quizBtnRestart').addEventListener('click', function() {
+        var q = overlay._quizState;
+        if (q) { q.index = 0; q.correct = 0; q.wrong = 0; q.wrongCards = []; q.answered = false; showCard(q); }
+      });
+      document.getElementById('quizBtnShow').addEventListener('click', function() {
+        var q = overlay._quizState;
+        if (!q || q.answered) return;
+        showAnswer(q);
+      });
+      document.getElementById('quizBtnCorrect').addEventListener('click', function() {
+        var q = overlay._quizState;
+        if (!q || !q.answered) return;
+        q.correct++;
+        nextCard(q);
+      });
+      document.getElementById('quizBtnWrong').addEventListener('click', function() {
+        var q = overlay._quizState;
+        if (!q || !q.answered) return;
+        q.wrong++;
+        q.wrongCards.push(q.cards[q.index]);
+        nextCard(q);
+      });
+    }
+
+    // Store state and start
+    var state = {
+      cards: cards,
+      index: 0,
+      correct: 0,
+      wrong: 0,
+      wrongCards: [],
+      answered: false
+    };
+    overlay._quizState = state;
+    overlay.classList.add('active');
+    showCard(state);
+
+    function closeQuiz() {
+      overlay.classList.remove('active');
+    }
+
+    function shuffleArray(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    function showCard(q) {
+      // Shuffle at start
+      if (q.index === 0) shuffleArray(q.cards);
+
+      q.answered = false;
+      var total = q.cards.length;
+      var card = q.cards[q.index];
+      var num = q.index + 1;
+
+      document.getElementById('quizCard').style.display = 'flex';
+      document.getElementById('quizCounter').textContent = num + ' / ' + total;
+      document.getElementById('quizProgress').style.width = ((num - 1) / total * 100) + '%';
+      document.getElementById('quizWord').textContent = card.front;
+      document.getElementById('quizHint').textContent = 'Mõtle järele, siis klõpsa "Näita vastust"';
+      document.getElementById('quizAnswerText').textContent = card.back;
+      document.getElementById('quizAnswerSub').textContent = '';
+      document.getElementById('quizAnswer').classList.remove('show');
+      document.getElementById('quizBtnShow').style.display = '';
+      document.getElementById('quizBtnShow').disabled = false;
+      document.getElementById('quizBtnCorrect').style.display = 'none';
+      document.getElementById('quizBtnWrong').style.display = 'none';
+      document.getElementById('quizResult').classList.remove('show');
+    }
+
+    function showAnswer(q) {
+      q.answered = true;
+      document.getElementById('quizAnswer').classList.add('show');
+      document.getElementById('quizHint').textContent = 'Kas teadsid?';
+      document.getElementById('quizBtnShow').style.display = 'none';
+      document.getElementById('quizBtnCorrect').style.display = '';
+      document.getElementById('quizBtnWrong').style.display = '';
+    }
+
+    function nextCard(q) {
+      q.index++;
+      if (q.index >= q.cards.length) {
+        showResults(q);
+      } else {
+        showCard(q);
+      }
+    }
+
+    function showResults(q) {
+      var total = q.cards.length;
+      var pct = Math.round(q.correct / total * 100);
+      var emoji, text;
+      if (pct >= 90) { emoji = '🏆'; text = 'Suurepärane! Oled selle sõnavara suurepäraselt selgeks saanud!'; }
+      else if (pct >= 70) { emoji = '🌟'; text = 'Väga hea! Mõned sõnad vajavad veel kordamist.'; }
+      else if (pct >= 50) { emoji = '💪'; text = 'Pool õige! Harjuta veel ja läheb paremaks.'; }
+      else { emoji = '📚'; text = 'Vaja on veel õppida. Ära anna alla!'; }
+
+      document.getElementById('quizCard').style.display = 'none';
+      document.getElementById('quizCounter').textContent = total + ' / ' + total;
+      document.getElementById('quizProgress').style.width = '100%';
+      document.getElementById('quizBtnShow').style.display = 'none';
+      document.getElementById('quizBtnCorrect').style.display = 'none';
+      document.getElementById('quizBtnWrong').style.display = 'none';
+
+      document.getElementById('quizResultEmoji').textContent = emoji;
+      document.getElementById('quizResultScore').textContent = q.correct + ' / ' + total + ' (' + pct + '%)';
+      document.getElementById('quizResultText').textContent = text;
+      document.getElementById('quizStatCorrect').textContent = q.correct;
+      document.getElementById('quizStatWrong').textContent = q.wrong;
+
+      // Show wrong cards list
+      var wrongList = document.getElementById('quizWrongList');
+      var wrongTitle = document.getElementById('quizWrongTitle');
+      wrongList.innerHTML = '';
+      if (q.wrongCards.length > 0) {
+        wrongTitle.classList.add('show');
+        wrongList.classList.add('show');
+        q.wrongCards.forEach(function(wc) {
+          var item = document.createElement('div');
+          item.className = 'quiz-wrong-item';
+          item.innerHTML = '<span class="qw-front">' + wc.front + '</span><span class="qw-back">' + wc.back + '</span>';
+          wrongList.appendChild(item);
+        });
+      } else {
+        wrongTitle.classList.remove('show');
+        wrongList.classList.remove('show');
+      }
+
+      document.getElementById('quizResult').classList.add('show');
+    }
   }
 
   // ===== FLASHCARDS =====
@@ -1187,6 +1476,7 @@ INTERACTIVE_JS = """
   safeInit(initScrollTop, 'scrollTop');
   safeInit(initSearch, 'search');
   safeInit(initAudioPlayer, 'audioPlayer');
+  safeInit(initQuiz, 'quiz');
   safeInit(initFlashcards, 'flashcards');
   safeInit(initProgress, 'progress');
   safeInit(initNav, 'nav');

@@ -39,6 +39,7 @@ FILES_ORDER = [
     "practice_exams.md",
     "progress_tracker.md",
     "e_nagu_eesti.md",
+    "eesti_keele_eksamid_reference.md",
 ]
 
 HEADER = """<!DOCTYPE html>

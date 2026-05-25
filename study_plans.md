@@ -117,7 +117,7 @@ leib, piim, kohv, tee, supp, liha, kala, juust, õun, banaan, ostma, maksma, võ
 
 - [Keeleklikk A1](https://www.keeleklikk.ee) — tasuta kursus
 - [Sõnaveeb](https://sonaveeb.ee) — sõnaraamat
-- [MEIS Testest](https://testest.meis.ee) — proovieksamid
+- [MEIS Testest](https://web.meis.ee/testest/login.php?lang=et) — proovieksamid
 
 ---
 

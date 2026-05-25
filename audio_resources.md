@@ -25,7 +25,7 @@
 | Nimi | Kirjeldus | Tase | Link |
 |------|-----------|------|------|
 | **Eesti keele podcast** | Aeglane eesti keel algajatele, lihtsad teemad | A1-A2 | [Spotify](https://open.spotify.com/search/eesti%20keele%20podcast) / [Apple Podcasts](https://podcasts.apple.com/search?term=eesti%20keele%20podcast) |
-| **Keeleklikk** | Tasuta kursus koos heliga | A1 | [keeleklikk.ee](https://www.keeleklikk.ee) / [keeleklikk.edu.ee](https://www.keeleklikk.edu.ee/en/letter/) |
+| **Keeleklikk** | Tasuta kursus koos heliga | A1 | [keeleklikk.ee](https://www.keeleklikk.ee) |
 | **Keeletee** | A1-B1 kursus, iga sõna hääldatud | A1-B1 | [keeletee.ee](https://www.keeletee.ee) |
 | **Simple Estonian** | Lihtsad lood eesti keeles, aeglane tempo | A2-B1 | [YouTube](https://www.youtube.com/results?search_query=simple+estonian+podcast) / [Spotify](https://open.spotify.com/search/simple%20estonian) |
 | **Minu Eesti** | Lühilood Eestist ja elust, lihtne sõnavara | A2 | [YouTube](https://www.youtube.com/results?search_query=minu+eesti+podcast) |
@@ -146,10 +146,10 @@
 | **Raadio 4** | Vene keeles, uudised ja kultuur | [r4.err.ee](https://r4.err.ee) |
 | **Klassikaraadio** | Klassikaline muusika, vähe juttu | [klassikaraadio.err.ee](https://klassikaraadio.err.ee) |
 | **Äripäeva raadio** | Majandusuudised | [raadio.aripaev.ee](https://raadio.aripaev.ee) |
-| **Raadio Tallinn** | Muusika ja uudised | [radiotallinn.ee](https://www.radiotallinn.ee) |
+| **Raadio Tallinn** | Muusika ja uudised | [myhits.ee](https://www.myhits.ee) (endine Raadio Tallinn) |
 | **Star FM** | Popmuusika, lühikesed uudised | [starfm.ee](https://www.starfm.ee) |
 | **Elmar** | Eesti muusika | [elmar.ee](https://www.elmar.ee) |
-| **Sky Plus** | Muusika, saated | [sky.ee](https://www.sky.ee) |
+| **Sky Plus** | Muusika, saated | [skyplus.ee](https://www.skyplus.ee) |
 | **MyHits** | Popmuusika | [myhits.ee](https://www.myhits.ee) |
 
 ### Kuulamisharjutus raadioga

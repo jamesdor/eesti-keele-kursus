@@ -25,7 +25,7 @@
 |--------|--------|--------|----------|
 | **Keeleklikk** | 0 → A2 | [keeleklikk.ee](https://www.keeleklikk.ee) | 16 глав, 1750 заданий, анимации, видео. Язык-посредник: русский, английский |
 | **Keeletee** | A2 → B1 | [keeletee.ee](https://www.keeletee.ee) | Продолжение Keeleklikk, 13 глав, 1138 заданий |
-| **Keelelend** | B1 → B2 | [keelelend.ee](https://www.keelelend.ee) | Новый курс (2025–2026), 3 главы готовы. Только на эстонском |
+| **Keelelend** | B1 → B2 | *kurss on väljatöötamisel* | Новый курс (2025–2026), пока недоступен |
 | **Speakly** | A1–B1 | [speakly.me](https://speakly.me) | Приложение для изучения языка |
 | **Multikey** | A2–B2 | [multikey.app](https://multikey.app) | Поиск собеседников для практики |
 | **50languages** | A1–A2 | 50languages.com | Игры и тесты |
@@ -404,7 +404,7 @@
 | **Harno (Haridus- ja Noorteamet)** | [harno.ee](https://www.harno.ee) | Официальный организатор экзаменов |
 | **MEIS Testest** | [web.meis.ee/testest/](https://web.meis.ee/testest/login.php?lang=et) | Пробные экзамены онлайн |
 | **Интеграционный фонд** | [integratsioon.ee](https://www.integratsioon.ee) | Информация о самостоятельном обучении |
-| **Eesti Keele Maja** | [meis.ee/eesti-keele-majad](https://www.meis.ee/eesti-keele-majad) | Языковые дома Эстонии (бесплатные курсы и консультации) |
+| **Eesti Keele Maja** | [integratsioon.ee/eesti-keele-majad](https://www.integratsioon.ee/eesti-keele-majad) | Языковые дома Эстонии (бесплатные курсы и консультации) |
 | **Словарь Sõnaveeb** | [sonaveeb.ee](https://sonaveeb.ee) | Словарь с примерами, переводом, словесными играми |
 | **EKI Keeleabi** | [keeleabi.eki.ee](https://keeleabi.eki.ee) | Бесплатная языковая консультация |
 | **Cooljugator** | [cooljugator.com/ee](https://cooljugator.com/ee) | Спряжение эстонских глаголов |

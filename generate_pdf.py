@@ -1438,9 +1438,9 @@ def main():
         "lang": "et",
         "categories": ["education", "language"],
         "icons": [
-            {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
-            {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
-            {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"}
+            {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+            {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"}
         ]
     }
     with open(os.path.join(FOLDER, 'manifest.json'), 'w', encoding='utf-8') as f:

@@ -407,3 +407,4 @@ See teekaart näitab **täpselt, mida ja millal teha**. Sa ei pea ise otsustama 
 | **Eesti kultuur ja kombed** | `culture_guide.md` |
 | **Edusammude jälgija** | `progress_tracker.md` |
 | **Pildid** (8 tk) | `pildid/` |
+

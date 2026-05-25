@@ -796,7 +796,7 @@ INTERACTIVE_JS = """
 
         // Highlight matches
         if (match) {
-          var regex = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+          var regex = new RegExp('(' + q.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + ')', 'gi');
           var els = section.querySelectorAll('p, li, td, dd, h1, h2, h3, h4, h5, h6, blockquote');
           els.forEach(function(el) {
             if (el.querySelector('script, style, .search-match')) return;
@@ -1490,7 +1490,7 @@ def main():
 
     # Write service worker
     sw = """// Eesti Keele Kursus — Service Worker
-const CACHE = 'eesti-keele-v2';
+const CACHE = 'eesti-keele-v3';
 const URLS = [
   'eesti_keele_kursus.html',
   'manifest.json',

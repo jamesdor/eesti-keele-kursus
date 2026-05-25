@@ -1874,6 +1874,18 @@ INTERACTIVE_JS = """
         section.classList.toggle('collapsed');
       });
     });
+
+    // Auto-expand section when navigating to an anchor inside it
+    function expandSectionForAnchor() {
+      var hash = window.location.hash;
+      if (!hash) return;
+      var target = document.getElementById(hash.substring(1));
+      if (!target) return;
+      var section = target.closest('.content-section');
+      if (section) section.classList.remove('collapsed');
+    }
+    window.addEventListener('hashchange', expandSectionForAnchor);
+    setTimeout(expandSectionForAnchor, 300);
   }
 
   // ===== LEVEL FILTER =====

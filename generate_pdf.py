@@ -1315,7 +1315,8 @@ INTERACTIVE_JS = """
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('active'); });
     var panel = document.createElement('div');
     panel.className = 'fav-panel';
-    panel.innerHTML = '<h3>★ Lemmikud</h3><div id="favList"></div><button class="quiz-btn quiz-btn-close" style="margin-top:12px;" onclick="document.getElementById(\'favOverlay\').classList.remove(\'active\')">Sulge</button>';
+    panel.innerHTML = '<h3>★ Lemmikud</h3><div id="favList"></div><button class="quiz-btn quiz-btn-close" style="margin-top:12px;" id="favCloseBtn">Sulge</button>';
+    panel.querySelector('#favCloseBtn').addEventListener('click', function() { overlay.classList.remove('active'); });
     overlay.appendChild(panel);
     document.body.appendChild(overlay);
     refreshFavList();

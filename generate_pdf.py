@@ -2332,7 +2332,7 @@ def main():
 
     # Write service worker
     sw = """// Eesti Keele Kursus — Service Worker
-const CACHE = 'eesti-keele-v3';
+const CACHE = 'eesti-keele-v4';
 const URLS = [
   'eesti_keele_kursus.html',
   'manifest.json',
@@ -2361,9 +2361,15 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
+  // Network-first: always try server first, fall back to cache
   e.respondWith(
-    caches.match(e.request).then(function(r) {
-      return r || fetch(e.request).catch(function() { return r; });
+    fetch(e.request).then(function(res) {
+      return caches.open(CACHE).then(function(cache) {
+        cache.put(e.request, res.clone());
+        return res;
+      });
+    }).catch(function() {
+      return caches.match(e.request);
     })
   );
 });

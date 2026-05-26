@@ -39,6 +39,11 @@ FILES_ORDER = [
     "practice_exams.md",
     "progress_tracker.md",
     "e_nagu_eesti.md",
+    "folk_tales.md",
+    "verb_tenses.md",
+    "essay_examples.md",
+    "exam_strategies.md",
+    "health.md",
     "eesti_keele_eksamid_reference.md",
 ]
 
@@ -2238,6 +2243,11 @@ def get_title_from_file(filename):
         "workbook.md": ("Töövihik", "other"),
         "progress_tracker.md": ("Edusammude jälgija", "other"),
         "e_nagu_eesti.md": ("E nagu Eesti 1-3", "A1"),
+        "folk_tales.md": ("Eesti muinasjutud ja rahvapärimused", "other"),
+        "verb_tenses.md": ("Ajavormide meistritabel", "other"),
+        "essay_examples.md": ("Essee näidised ja analüüs (B1–C1)", "other"),
+        "exam_strategies.md": ("Eksamistrateegiad", "other"),
+        "health.md": ("Tervis ja arstiabi", "other"),
     }
     return titles.get(filename, (filename.replace('.md', '').replace('_', ' ').title(), "other"))
 
